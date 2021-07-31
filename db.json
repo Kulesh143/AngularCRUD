@@ -1,0 +1,48 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "firstName": "Kal",
+      "lastName": "El",
+      "email": "kalel@gmail.com",
+      "mobile": "088222255",
+      "salary": "$9333333"
+    },
+    {
+      "id": 3,
+      "firstName": "Kulesh",
+      "lastName": "dfben",
+      "email": "netnetn@yahoo.com",
+      "mobile": "03434344334",
+      "salary": "$23222eben"
+    },
+    {
+      "id": 4,
+      "firstName": "tene",
+      "lastName": "enen",
+      "email": "ehben3@ndgbeb",
+      "mobile": "44333",
+      "salary": "ebebsvwsbe"
+    },
+    {
+      "id": 5,
+      "firstName": "ebebn",
+      "lastName": "ebebn",
+      "email": "eben@wgwb",
+      "mobile": "333",
+      "salary": "web"
+    },
+    {
+      "id": 6,
+      "firstName": "DTNEDN ",
+      "lastName": "EDNEN",
+      "email": "eber@dhbe",
+      "mobile": "555445",
+      "salary": "dbednd"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
