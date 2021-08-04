@@ -28,5 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 "# AngularCRUD" 
 
 ## My Project for the Youtube Video
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/75KPAbbCJn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://www.youtube.com/embed/75KPAbbCJn4
