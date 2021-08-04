@@ -21,4 +21,19 @@ updateEmployee(data:any,id:number){
 deleteEmployee(id:number){
   return this.http.delete<any>("http://localhost:3000/posts/"+id).pipe(map((res:any)=>{return res;}))
 }
+postSectionName(data:any){
+  return this.http.post<any>("http://localhost:3000/posts",data).pipe(map((res:any)=>{return res;}))
+}
+getQkool(){
+  return this.http.get<any>("http://localhost:3000/posts").pipe(map((res:any)=>{return res;}))
+}
+updateQkool(data:any,id:number){
+  return this.http.put<any>("http://localhost:3000/posts/"+id,data).pipe(map((res:any)=>{return res;}))
+}
+postTopicName(data:any){
+  return this.http.post<any>("http://localhost:3000/posts",data).pipe(map((res:any)=>{return res;}))
+}
+deleteQkool(id:number){
+  return this.http.delete<any>("http://localhost:3000/posts/"+id).pipe(map((res:any)=>{return res;}))
+}
 }

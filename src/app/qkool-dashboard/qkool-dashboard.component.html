@@ -1,0 +1,716 @@
+
+<nav class="navbar navbar-light bg-primary">
+  
+  <div class="container-fluid" style="margin: 10px;" >
+      <h1 style="color:aliceblue">QKOOL!</h1>
+      <div class="d-flex">
+          <!-- /<div class="dropdown"> -->
+              <button *ngFor="let element of qdata" (click)="onEdit(element)" style="margin: 10px;"  class="btn btn-secondary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
+           {{element.sectionName}}
+              </button>
+              
+
+                
+           
+            
+       
+      </div>
+      <button style="background-color: blueviolet;" class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalSection" class="btn btn-danger">Add New Section To List</button>
+       
+      <div>
+   </div>
+  </div>
+</nav>
+<nav class="navbar navbar-light bg-primary">
+  
+  <div class="container-fluid" style="margin: 10px;" >
+      <h1 style="color:aliceblue">UPDATE!</h1>
+      <div class="d-flex">
+          <!-- /<div class="dropdown"> -->
+              <button *ngFor="let element of qdata" (click)="updateQKoolDetails(element)" style="margin: 10px;background-color: darksalmon;"  class="btn btn-secondary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
+           {{element.sectionName}}
+              </button>
+              
+
+                
+           
+            
+       
+      </div>
+      <button  style="background-color: blueviolet;" class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalTopic" class="btn btn-danger">Add New Topic To List</button>
+       
+      <div>
+   </div>
+  </div>
+</nav>
+<hr>
+<div style="background-color: darkseagreen; text-align: center; margin-top: 10px; margin-right: 500px;margin-left: 500px; border: 2px solid; border-color: blue;">
+<form [formGroup]="formValue" style="margin-right: 50px;margin-left: 50px;margin-top: 50px;margin-bottom: 50px;" action="#" name="StudentRegistration" onSubmit="return(validate());">
+
+  <table cellpadding="2" width="20%" 
+  cellspacing="2">
+  
+  <tr>
+  <td colspan=2>
+    <h1 style="font-family: Fantasy;">Topic Name</h1>
+    <input formControlName="topicName" style="font-size: 27px; text-align: center; border-top-style: hidden;margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;" type=text value="Untitled Topic Name" >
+ </td> </tr>
+ <tr>
+  <td colspan=2>
+    <h1 style="font-family: Fantasy;">Section Name</h1>
+    <input formControlName="sectionName" style="font-size: 27px; text-align: center; border-top-style: hidden;margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;" type=text value="Section Name" >
+ </td> </tr>
+  <tr>
+  <td style="font-family: Fantasy; margin-bottom: 0px;">Question #1</td>
+  <td><input formControlName="questionOne"style="border-top-style: hidden;margin-bottom: 0px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px blue;" type=text name="q1" id="q1" size="30">
+ 
+ 
+    <td>
+      <select formControlName="questionOneType" id="QtypeforTwo" name="QtypeforTwo" style="color: chocolate;">
+    <option value="Multiple Choice">Multiple Choice</option>
+    
+    <option value="Single Choice">Single Choice</option>
+    <option value="SingleLine">SingleLine</option>
+    <option value="MultiLine">MultiLine</option>
+    
+    </select>
+      <button type="button" (click)="usemulti()"  id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;" >
+    MultipleChoice</button>
+    <button type="button" (click)="usesin()"   id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;">Single Choice</button>
+      
+  
+      <button type="button"  (click)="usesingl()" id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;">SingleLine</button>
+      
+  
+        
+       
+        
+        
+        <button type="button" (click)="usemull()"  id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;">MultiLine</button>
+      
+  
+ </td> 
+  
+</tr>
+<tr *ngIf="showsing"><td>Answer #1</td>
+
+<td><input placeholder=" Type SingleLine Answer." formControlName="questionOneAnswer" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+
+</td>
+
+</tr>
+<tr *ngIf="showsin">
+  <td>Answer #1</td><td> 
+    <input placeholder="O Type Single Choice Answer." formControlName="questionOneAnswer" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+ </td>
+</tr>
+
+<tr *ngIf="showme">
+  <td>Answer #1</td>
+  <td>
+    <input styplaceholder=" Type Multiple Answers" formControlName="questionOneAnswer" type="text" name="product" list="productName"/>
+    <datalist id="productName">
+        <option value="Option1">Option1</option>
+        <option value="Option2">Option2</option>
+        <option value="Option3">Option3</option>
+    </datalist>
+  </td>
+</tr>
+<tr *ngIf="showmull" >
+  <td>Answer #1</td>
+  <td>
+    <textarea placeholder=" Type MultiLine Answer." style="width: 250px;" formControlName="questionOneAnswer"id="w3review" name="w3review" rows="4" cols="20">
+      At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+      </textarea>
+  </td>
+</tr>
+<tr>
+  <td style="font-family: Fantasy; margin-bottom: 0px;">Question #2</td>
+  <td><input formControlName="questionTwo"style="border-top-style: hidden;margin-bottom: 0px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px blue;" type=text name="q1" id="q1" size="30">
+ 
+ 
+    <td>
+      <select formControlName="questionTwoType" id="QtypeforTwo" name="QtypeforTwo" style="color: chocolate;">
+    <option value="Multiple Choice">Multiple Choice</option>
+    
+    <option value="Single Choice">Single Choice</option>
+    <option value="SingleLine">SingleLine</option>
+    <option value="MultiLine">MultiLine</option>
+    
+    </select>
+      <button type="button" (click)="usemultitwo()"  id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;" >
+    MultipleChoice</button>
+    <button type="button" (click)="usesintwo()"   id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;">Single Choice</button>
+      
+  
+      <button type="button"  (click)="usesingltwo()" id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;">SingleLine</button>
+      
+  
+        
+       
+        
+        
+        <button type="button" (click)="usemulltwo()"  id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;">MultiLine</button>
+      
+  
+ </td> 
+  
+</tr>
+<tr *ngIf="showsingtwo"><td>Answer #1</td>
+
+<td><input placeholder=" Type SingleLine Answer." formControlName="questionTwoAnswer" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+
+</td>
+
+</tr>
+<tr *ngIf="showsintwo">
+  <td>Answer #1</td><td> 
+    <input placeholder="O Type Single Choice Answer." formControlName="questionTwoAnswer" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+ </td>
+</tr>
+
+<tr *ngIf="showmetwo">
+  <td>Answer #1</td>
+  <td>
+    <input styplaceholder=" Type Multiple Answers" formControlName="questionTwoAnswer" type="text" name="product" list="productName"/>
+    <datalist id="productName">
+        <option value="Option1">Option1</option>
+        <option value="Option2">Option2</option>
+        <option value="Option3">Option3</option>
+    </datalist>
+  </td>
+</tr>
+<tr *ngIf="showmulltwo" >
+  <td>Answer #1</td>
+  <td>
+    <textarea placeholder=" Type MultiLine Answer." style="width: 250px;" formControlName="questionTwoAnswer"id="w3review" name="w3review" rows="4" cols="20">
+      At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+      </textarea>
+  </td>
+</tr>
+<tr>
+  <td style="font-family: Fantasy; margin-bottom: 0px;">Question #3</td>
+  <td><input formControlName="questionThree"style="border-top-style: hidden;margin-bottom: 0px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px blue;" type=text name="q1" id="q1" size="30">
+ 
+ 
+    <td>
+      <select formControlName="questionThreeType" id="QtypeforTwo" name="QtypeforTwo" style="color: chocolate;">
+    <option value="Multiple Choice">Multiple Choice</option>
+    
+    <option value="Single Choice">Single Choice</option>
+    <option value="SingleLine">SingleLine</option>
+    <option value="MultiLine">MultiLine</option>
+    
+    </select>
+      <button type="button" (click)="usemultithree()"  id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;" >
+    MultipleChoice</button>
+    <button type="button" (click)="usesinthree()"   id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;">Single Choice</button>
+      
+  
+      <button type="button"  (click)="usesinglthree()" id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;">SingleLine</button>
+      
+  
+        
+       
+        
+        
+        <button type="button" (click)="usemullthree()"  id="QtypeforOne" name="QtypeforOne" style="font-family: Cursive; padding: 0; border: none; background: none; color: chocolate;">MultiLine</button>
+      
+  
+ </td> 
+  
+</tr>
+<tr *ngIf="showsingthree"><td>Answer #1</td>
+
+<td><input placeholder=" Type SingleLine Answer." formControlName="questionThreeAnswer" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+
+</td>
+
+</tr>
+<tr *ngIf="showsinthree">
+  <td>Answer #1</td><td> 
+    <input placeholder="O Type Single Choice Answer." formControlName="questionThreeAnswer" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+ </td>
+</tr>
+
+<tr *ngIf="showmethree">
+  <td>Answer #1</td>
+  <td>
+    <input styplaceholder=" Type Multiple Answers" formControlName="questionThreeAnswer" type="text" name="product" list="productName"/>
+    <datalist id="productName">
+        <option value="Option1">Option1</option>
+        <option value="Option2">Option2</option>
+        <option value="Option3">Option3</option>
+    </datalist>
+  </td>
+</tr>
+<tr *ngIf="showmullthree" >
+  <td>Answer #1</td>
+  <td>
+    <textarea placeholder=" Type MultiLine Answer." style="width: 250px;" formControlName="questionThreeAnswer"id="w3review" name="w3review" rows="4" cols="20">
+      At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+      </textarea>
+  </td>
+</tr>
+
+ 
+  
+  
+  
+ 
+  
+  
+
+  <tr>
+    <!-- (click)="onEdit(row)" -->
+    
+  <td colspan="2">
+    <button (click)="savesomething()"type="button" class="btn btn-success" style="margin-top: 20px; margin-bottom: 30px; margin-left: 60px; margin-right: 20px; font-size: 24px;">Submit QKOOL Form</button>
+  
+  </td>
+  
+</tr>
+  
+  </table>
+  </form>
+</div>
+<hr>
+<div  style="text-align: center; margin-top: 10px; margin-right: 320px;margin-left: 500px; border: 2px solid; border-color: blue;">
+  <form *ngFor="let element of qdata" [formGroup]="formValue" style="margin-right: 50px;margin-left: 50px;margin-top: 50px;margin-bottom: 50px;" action="#" name="StudentRegistration" onSubmit="return(validate());">
+  
+    <table cellpadding="2" width="20%" 
+    cellspacing="2">
+    
+    <tr>
+    <td colspan=2>
+      <h1 style="font-family: Fantasy;">Topic Name</h1>
+      <input  style="font-size: 27px; text-align: center; border-top-style: hidden;margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;" type=text value="{{element.topicName}}" >
+   </td> </tr>
+   <tr>
+    <td colspan=2>
+      <h1 style="font-family: Fantasy;">Section Name</h1>
+      <input  style="font-size: 27px; text-align: center; border-top-style: hidden;margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;" type=text value="{{element.sectionName}}" >
+   </td> </tr>
+    <tr>
+    <td style="font-family: Fantasy;">Question #1</td>
+    <td><input value="{{element.questionOne}}"style="border-top-style: hidden;margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px blue;" type=text name="q1" id="q1" size="30"></td>
+    <td><select id="QtypeforOne" name="QtypeforOne" style="color: chocolate;">
+      <option value="Multiple Choice">{{element.questionOneType}}</option>
+  
+      
+      </select>
+    </td> 
+  </tr>
+  <tr *ngIf="showsingAV"><td>Answer #1</td>
+
+    <td><input value="{{element.questionOneAnswer}}" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+    
+    </td>
+    
+    </tr>
+    <tr *ngIf="showsiAV">
+      <td>Answer #1</td><td> 
+        <input type="radio" id="html" name="fav_language" value="{{element.questionOneAnswer}}">
+<label  for="html">{{element.questionOneAnswer}}</label><br>
+<input  type="radio" id="html" name="fav_language" value="Sigiriya">
+<label  for="html">Sigiriya</label><br>
+<input type="radio" id="html" name="fav_language" value="Matale">
+<label for="html">Matale</label><br>
+<input  type="radio" id="html" name="fav_language" value="Kandy">
+<label  for="html">Kandy</label>
+     </td>
+    </tr>
+    
+    <tr *ngIf="showMAV">
+      <td></td>
+      <td>
+        <input styplaceholder=" Type Multiple Answers" formControlName="questionOneAnswer" type="text" name="product" list="productName"/>
+        <datalist id="productName">
+            <option value="{{element.questionOneAnswer}}">{{element.questionOneAnswer}}</option>
+            <option value="{{element.questionOneAnswer}}">{{element.questionOneAnswer}}</option>
+            <option value="{{element.questionOneAnswer}}">{{element.questionOneAnswer}}</option>
+        </datalist>
+      </td>
+    </tr>
+    <tr *ngIf="showmullAV" >
+      <td>Answer #1</td>
+      <td>
+        <textarea style="width: 250px;" id="w3review" name="w3review" rows="4" cols="20">
+          {{element.questionOneAnswer}}
+          </textarea>
+      </td>
+    </tr>
+  
+    
+    <tr>
+    <td style="font-family: Fantasy;">Question #2</td>
+    <td><input style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px blue" type="text" name="q2" id="q2" value="{{element.questionTwo}}"
+    size="30"></td>
+    <td><select  id="QtypeforTwo" name="QtypeforTwo" style="color: chocolate;">
+      <option value="Multiple Choice">{{element.questionTwoType}}"</option>
+      
+      </select></td>
+      <td></td>
+      <td><button (click)="getquestwo(element)"type="button" class="btn btn-success" style="background-color: dodgerblue; margin-top: 0px; margin-bottom: 30px; margin-left: 60px; margin-right: 20px; font-size: 24px;">Edit</button>
+        <button data-bs-toggle="modal" data-bs-target="#exampleModalView"type="button" class="btn btn-success" style="margin-top: 0px; margin-bottom: 30px; margin-left: 60px; margin-right: 20px; font-size: 24px;">View</button>
+      </td>
+    </tr>
+    <tr *ngIf="showsingAVt"><td>Answer #2</td>
+
+      <td><input value="{{element.questionTwoAnswer}}" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+      
+      </td>
+      
+      </tr>
+      <tr *ngIf="showsiAVt">
+        <td>Answer #2</td><td> 
+          <input type="radio" id="html" name="fav_language" value="{{element.questionTwoAnswer}}">
+  <label  for="html">{{element.questionTwoAnswer}}</label><br>
+  <input  type="radio" id="html" name="fav_language" value="Nuwara">
+  <label  for="html">Nuwara</label><br>
+  <input type="radio" id="html" name="fav_language" value="Baseline">
+  <label for="html">Baseline</label><br>
+  <input  type="radio" id="html" name="fav_language" value="Kegalle">
+  <label  for="html">Kegalle</label>
+       </td>
+      </tr>
+      
+      <tr *ngIf="showMAVt">
+        <td>Answer #2</td>
+        <td>
+          <input styplaceholder=" Type Multiple Answers" formControlName="questionTwoAnswer" type="text" name="product" list="productName"/>
+          <datalist id="productName">
+              <option  value="{{element.questionTwoAnswer}}">{{element.questionTwoAnswer}}</option>
+              <option value="{{element.questionTwoAnswer}}">{{element.questionTwoAnswer}}</option>
+              <option value="{{element.questionTwoAnswer}}">{{element.questionTwoAnswer}}</option>
+          </datalist>
+        </td>
+      </tr>
+      <tr *ngIf="showmullAVt" >
+        <td>Answer #2</td>
+        <td>
+          <textarea style="width: 250px;" id="w3review" name="w3review" rows="4" cols="20">
+            {{element.questionTwoAnswer}}
+            </textarea>
+        </td>
+      </tr>
+    
+      
+    <tr>
+    <td style="font-family: Fantasy;">Question #3</td>
+    <td><input style="border-top-style: hidden; border-left-style: hidden;margin-bottom: 30px; border-right-style: hidden;box-shadow: 5px 10px blue;" type="text" name="q3" id="q3" size="30"value="{{element.questionThree}}"></td>
+    <td><select  id="QtypeforThree" name="QtypeforThree" style="color: chocolate;">
+     
+      
+      <option value="Multiple Choice">{{element.questionThreeType}}</option>
+      
+      
+      </select></td>  
+  </tr>
+  <tr *ngIf="showsingAVw"><td>Answer #3</td>
+
+    <td><input value="{{element.questionThreeAnswer}}" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+    
+    </td>
+    
+    </tr>
+    <tr *ngIf="showsiAVw">
+      <td>Answer #3</td><td> 
+        <input type="radio" id="html" name="fav_language" value="{{element.questionThreeAnswer}}">
+<label  for="html">{{element.questionThreeAnswer}}</label><br>
+<input  type="radio" id="html" name="fav_language" value="Yala">
+<label  for="html">Yala</label><br>
+<input type="radio" id="html" name="fav_language" value="Galle">
+<label for="html">Galle</label><br>
+<input  type="radio" id="html" name="fav_language" value="Matara">
+<label  for="html">Matara</label>
+     </td>
+    </tr>
+    
+    <tr *ngIf="showMAVw">
+      <td>Answer #3</td>
+      <td>
+        <input styplaceholder=" Type Multiple Answers" formControlName="questionThreeAnswer" type="text" name="product" list="productName"/>
+        <datalist id="productName">
+            <option  value="{{element.questionThreeAnswer}}">{{element.questionThreeAnswer}}</option>
+            <option value="{{element.questionThreeAnswer}}">{{element.questionThreeAnswer}}</option>
+            <option value="{{element.questionThreeAnswer}}">{{element.questionThreeAnswer}}</option>
+        </datalist>
+      </td>
+    </tr>
+    <tr *ngIf="showmullAVw" >
+      <td>Answer #3</td>
+      <td>
+        <textarea style="width: 250px;" id="w3review" name="w3review" rows="4" cols="20">
+          {{element.questionThreeAnswer}}
+          </textarea>
+      </td>
+    </tr>
+  
+    
+    
+    
+  
+    
+    </table>
+ 
+    </form>
+    <hr>
+  </div>
+<!-- Modal For Section -->
+<div class="modal fade" id="exampleModalSection" tabindex="-1" role="dialog" aria-labelledby="exampleModalSectionTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Section Creator</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+         
+        </button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="formValue">
+              <div class="mb-3">
+                <label for="exampleInputSection" class="form-label">Section Name</label>
+                <input type="text" formControlName="sectionName" class="form-control" id="exampleInputSection" aria-describedby="sectionHelp">
+                     </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="postSectionDetails()" type="button" class="btn btn-primary">Save Section</button>
+            </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal For Section End-->
+ <!-- Modal For Topic-->
+<div class="modal fade" id="exampleModalTopic" tabindex="-1" role="dialog" aria-labelledby="exampleModalSectionTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Topic Creator</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+         
+        </button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="formValue">
+              <div class="mb-3">
+                <label for="exampleInputSection" class="form-label">Topic Name</label>
+                <input type="text" formControlName="topicName" class="form-control" id="exampleInputSection" aria-describedby="sectionHelp">
+                     </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="postTopicDetails()" type="button" class="btn btn-primary">Save Topic</button>
+            </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal For Topic End-->
+
+ <!-- Model for view forms -->
+ <div  style="width: 500px;margin-left: 0px;" class="modal fade" id="exampleModalView" tabindex="-1" role="dialog" aria-labelledby="exampleModalSectionTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">All Topic Questions</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+         
+        </button>
+      </div>
+      <div  style="text-align: center; margin-top: 10px; margin-right: 0px;margin-left: 0px; border: 2px solid; border-color: blue;">
+        <form *ngFor="let element of qdata" [formGroup]="formValue" style="margin-right: 50px;margin-left: 50px;margin-top: 50px;margin-bottom: 50px;" action="#" name="StudentRegistration" onSubmit="return(validate());">
+        
+          <table cellpadding="2" width="20%" 
+          cellspacing="2">
+          
+          <tr>
+          <td colspan=2>
+            <h1 style="font-family: Fantasy;">Topic Name</h1>
+            <input readonly style="font-size: 27px; text-align: center; border-top-style: hidden;margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;" type=text value="{{element.topicName}}" >
+         </td> </tr>
+         <tr>
+          <td colspan=2>
+            <h1 style="font-family: Fantasy;">Section Name</h1>
+            <input readonly style="font-size: 27px; text-align: center; border-top-style: hidden;margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;" type=text value="{{element.sectionName}}" >
+         </td> </tr>
+          <tr>
+          <td style="font-family: Fantasy;">Question #1</td>
+          <td><input readonly value="{{element.questionOne}}"style="border-top-style: hidden;margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px blue;" type=text name="q1" id="q1" size="30"></td>
+          <td style="visibility: hidden;">
+            <select id="QtypeforOne" name="QtypeforOne" style="color: chocolate;">
+            <option value="Multiple Choice">{{element.questionOneType}}</option>
+        
+            
+            </select>
+          </td> 
+        </tr>
+        <tr *ngIf="showsingAV"><td>Answer #1</td>
+      
+          <td><input value="{{element.questionOneAnswer}}" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+          
+          </td>
+          
+          </tr>
+          <tr *ngIf="showsiAV">
+            <td>Answer #1</td><td> 
+              <input type="radio" id="html" name="fav_language" value="Waduwa">
+      <label  for="html">Waduwa</label><br>
+      <input  type="radio" id="html" name="fav_language" value="Kelani">
+      <label  for="html">Kelani</label><br>
+      <input type="radio" id="html" name="fav_language" value="{{element.questionOneAnswer}}">
+      <label for="html">{{element.questionOneAnswer}}</label><br>
+      <input  type="radio" id="html" name="fav_language" value="Makola">
+      <label  for="html">Makola</label>
+           </td>
+          </tr>
+          
+          <tr *ngIf="showMAV">
+            <td></td>
+            <td>
+              <input styplaceholder=" Type Multiple Answers" formControlName="questionOneAnswer" type="text" name="product" list="productName"/>
+              <datalist id="productName">
+                  <option  value="{{element.questionOneAnswer}}">{{element.questionOneAnswer}}</option>
+                  <option value="{{element.questionOneAnswer}}">{{element.questionOneAnswer}}</option>
+                  <option value="{{element.questionOneAnswer}}">{{element.questionOneAnswer}}</option>
+              </datalist>
+            </td>
+          </tr>
+          <tr *ngIf="showmullAV" >
+            <td>Answer #1</td>
+            <td>
+              <textarea style="width: 250px;" id="w3review" name="w3review" rows="4" cols="20">
+                {{element.questionOneAnswer}}
+                </textarea>
+            </td>
+          </tr>
+        
+          
+          <tr>
+          <td style="font-family: Fantasy;">Question #2</td>
+          <td><input readonly style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px blue" type="text" name="q2" id="q2" value="{{element.questionTwo}}"
+          size="30"></td>
+          <td style="visibility: hidden;"><select  id="QtypeforTwo" name="QtypeforTwo" style="color: chocolate;">
+            <option value="Multiple Choice">{{element.questionTwoType}}"</option>
+            
+            </select></td>
+            <!-- <td></td> -->
+        
+          </tr>
+          <tr *ngIf="showsingAVt"><td>Answer #2</td>
+      
+            <td><input value="{{element.questionTwoAnswer}}" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+            
+            </td>
+            
+            </tr>
+            <tr *ngIf="showsiAVt">
+              <td>Answer #2</td><td> 
+                <input type="radio" id="html" name="fav_language" value="{{element.questionTwoAnswer}}">
+        <label  for="html">{{element.questionTwoAnswer}}</label><br>
+        <input  type="radio" id="html" name="fav_language" value="Ingiriya">
+        <label  for="html">Ingiriya</label><br>
+        <input type="radio" id="html" name="fav_language" value="Matale">
+        <label for="html">Matale</label><br>
+        <input  type="radio" id="html" name="fav_language" value="{{element.questionTwoAnswer}}">
+        <label  for="html">{{element.questionTwoAnswer}}</label>
+             </td>
+            </tr>
+            
+            <tr *ngIf="showMAVt">
+              <td>Answer #2</td>
+              <td>
+                <input styplaceholder=" Type Multiple Answers" formControlName="questionTwoAnswer" type="text" name="product" list="productName"/>
+                <datalist id="productName">
+                    <option  value="{{element.questionTwoAnswer}}">{{element.questionTwoAnswer}}</option>
+                    <option value="{{element.questionTwoAnswer}}">{{element.questionTwoAnswer}}</option>
+                    <option value="{{element.questionTwoAnswer}}">{{element.questionTwoAnswer}}</option>
+                </datalist>
+              </td>
+            </tr>
+            <tr *ngIf="showmullAVt" >
+              <td>Answer #2</td>
+              <td>
+                <textarea style="width: 250px;" id="w3review" name="w3review" rows="4" cols="20">
+                  {{element.questionTwoAnswer}}
+                  </textarea>
+              </td>
+            </tr>
+          
+            
+          <tr>
+          <td style="font-family: Fantasy;">Question #3</td>
+          <td><input readonly style="border-top-style: hidden; border-left-style: hidden;margin-bottom: 30px; border-right-style: hidden;box-shadow: 5px 10px blue;" type="text" name="q3" id="q3" size="30"value="{{element.questionThree}}"></td>
+          <td style="visibility: hidden;"><select  id="QtypeforThree" name="QtypeforThree" style="color: chocolate;">
+           
+            
+            <option value="Multiple Choice">{{element.questionThreeType}}</option>
+            
+            
+            </select></td>  
+        </tr>
+        <tr *ngIf="showsingAVw"><td>Answer #3</td>
+      
+          <td><input value="{{element.questionThreeAnswer}}" style="border-top-style: hidden; margin-bottom: 30px; border-left-style: hidden; border-right-style: hidden;box-shadow: 5px 10px red;" type=text name="a1" id="a1" size="30"> 
+          
+          </td>
+          
+          </tr>
+          <tr *ngIf="showsiAVw">
+            <td>Answer #3</td><td> <ol>
+              <input type="radio" id="html" name="fav_language" value="{{element.questionThreeAnswer}}">
+      <label  for="html">{{element.questionThreeAnswer}}</label><br>
+      <input  type="radio" id="html" name="fav_language" value="Sigiriya">
+      <label  for="html">Sigiriya</label><br>
+      <input type="radio" id="html" name="fav_language" value="Colombo">
+      <label for="html">Colombo</label><br>
+      <input  type="radio" id="html" name="fav_language" value="{{element.questionThreeAnswer}}">
+      <label  for="html">{{element.questionThreeAnswer}}</label>
+    </ol>   </td>
+          </tr>
+          
+          <tr *ngIf="showMAVw">
+            <td>Answer #3</td>
+            <td>
+              <input styplaceholder=" Type Multiple Answers" formControlName="questionThreeAnswer" type="text" name="product" list="productName"/>
+              <datalist id="productName">
+                  <option  value="{{element.questionThreeAnswer}}">{{element.questionThreeAnswer}}</option>
+                  <option value="{{element.questionThreeAnswer}}">{{element.questionThreeAnswer}}</option>
+                  <option value="{{element.questionThreeAnswer}}">{{element.questionThreeAnswer}}</option>
+              </datalist>
+            </td>
+          </tr>
+          <tr *ngIf="showmullAVw" >
+            <td>Answer #3</td>
+            <td>
+              <textarea style="width: 250px;" id="w3review" name="w3review" rows="4" cols="20">
+                {{element.questionThreeAnswer}}
+                </textarea>
+            </td>
+          </tr>
+        
+          <td><button (click)="getquestwo(element)"type="button" class="btn btn-success" style="background-color: dodgerblue; margin-top: 0px; margin-bottom: 30px; margin-left: 60px; margin-right: 20px; font-size: 24px;">Edit</button>
+            <!-- <button (click)="getquestwo(element)"type="button" class="btn btn-danger" style="background-color: dodgerblue; margin-top: 0px; margin-bottom: 30px; margin-left: 60px; margin-right: 20px; font-size: 24px;">Delete</button> -->
+            <!-- <button type="button" class="btn btn-success" style="margin-top: 0px; margin-bottom: 30px; margin-left: 60px; margin-right: 20px; font-size: 24px;">View</button> -->
+          </td>
+          <td>
+            <button (click)="deleteQK(element)"type="button" class="btn btn-danger" style="margin-top: 0px; margin-bottom: 30px; margin-left: 60px; margin-right: 20px; font-size: 24px;">Delete</button>
+         
+          </td>
+          
+          
+        
+          
+          </table>
+       
+          </form>
+          <hr>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+ <!-- model to view forms -->
